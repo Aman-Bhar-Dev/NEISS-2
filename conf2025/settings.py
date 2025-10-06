@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     "cloudinary",
     "cloudinary_storage",
     'django.contrib.humanize',
+    "anymail",
 
 
 ]
@@ -95,15 +96,16 @@ WSGI_APPLICATION = "conf2025.wsgi.application"
 
 
 DATABASES = {
-     'default': {
-         'ENGINE': 'django.db.backends.postgresql',
-         'NAME': config('DB_NAME'),
-         'USER': config('DB_USER'),
-         'PASSWORD': config('DB_PASSWORD'),
-         'HOST': config('DB_HOST'),
-         'PORT': config('DB_PORT', cast=int),
-     }
- }
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT', cast=int),
+        'OPTIONS': {'sslmode': config('DB_SSLMODE', default='require')}
+    }
+}
 
 
 # Password validation
@@ -132,15 +134,12 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 LOGIN_URL = '/login/'
 
 
-# Email configuration
-EMAIL_BACKEND = config('EMAIL_BACKEND', default='django.core.mail.backends.smtp.EmailBackend')
-EMAIL_HOST = config("EMAIL_HOST", default='smtp.gmail.com')
-EMAIL_PORT = config("EMAIL_PORT", default=587, cast=int)
-EMAIL_HOST_USER = config("EMAIL_HOST_USER")
-EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
-EMAIL_USE_TLS = config("EMAIL_USE_TLS", default=True, cast=bool)
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
-
+EMAIL_BACKEND = "anymail.backends.brevo.EmailBackend"
+ANYMAIL = {
+    "BREVO_API_KEY": config("BREVO_API_KEY"),
+}
+DEFAULT_FROM_EMAIL = "neiss.aus@gmail.com"
+SERVER_EMAIL = DEFAULT_FROM_EMAIL
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"

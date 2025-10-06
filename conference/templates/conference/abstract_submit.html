@@ -163,19 +163,22 @@
         <option value="Associate Professor">Associate Professor</option>
         <option value="Professor">Professor</option>
       </select>
+
       <label>FOOD PREFERENCE</label>
-      <select name="FOOD-PREFERENCE_${coauthorCount}" required>
+      <select name="coauthor_food_${coauthorCount}" required>
         <option value="">-- Select --</option>
         <option value="VEG">VEG</option>
-        <option value="NON-VEG">NON VEG</option>
+        <option value="NON-VEG">NON-VEG</option>
       </select>
+
       <label>ACCOMMODATION</label>
-      <select name="ACCOMMODATION_${coauthorCount}" required>
+      <select name="coauthor_accommodation_${coauthorCount}" required>
         <option value="">-- Select --</option>
         <option value="REQUIRED">REQUIRED</option>
         <option value="NOT-REQUIRED">NOT-REQUIRED</option>
       </select>
     `;
+
     container.appendChild(div);
     coauthorCount++;
   }

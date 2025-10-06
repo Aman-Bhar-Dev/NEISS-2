@@ -55,7 +55,7 @@ class AbstractSubmission(models.Model):
     ACCOMMODATION = models.CharField(max_length=20, choices=ACCOMMODATION_CHOICES, default='NOT-REQUIRED')
     
 
-    FOOD_PREFERENCE_CHOICES = [('NON-VEG', 'VEG'), ('NON-VEG', 'VEG')]
+    FOOD_PREFERENCE_CHOICES = [('VEG', 'VEG'), ('NON-VEG', 'NON-VEG'),]
     FOOD_PREFERENCE = models.CharField(max_length=20, choices=FOOD_PREFERENCE_CHOICES, default='VEG')
     
 
@@ -158,7 +158,7 @@ class CoAuthor(models.Model):
     ACCOMMODATION = models.CharField(max_length=20, choices=ACCOMMODATION_CHOICES,default='NOT-REQUIRED')
     
 
-    FOOD_PREFERENCE_CHOICES = [('NON-VEG', 'VEG'), ('NON-VEG', 'VEG')]
+    FOOD_PREFERENCE_CHOICES = [('VEG', 'VEG'), ('NON-VEG', 'NON-VEG')]
     FOOD_PREFERENCE = models.CharField(max_length=20, choices=FOOD_PREFERENCE_CHOICES,default='VEG')
     
 

@@ -183,6 +183,10 @@ def thank_you_abstract(request):
     return render(request, 'conference/thankyouab.html')
 
 
+def thank_you_abstract(request):
+    return render(request, 'conference/thankyouab.html')
+
+
 # ============ PROFILE & FULL PAPER ============ #
 @login_required
 def profile_view(request):
@@ -200,10 +204,10 @@ def profile_view(request):
 
 Your final paper for the abstract titled "{submission.title}" has been successfully uploaded.
 
-View your profile here: https://ibsscconf-site.onrender.com/profile/
+View your profile here: https://neiss-sw-2025.onrender.com/profile/
 
 Regards,  
-IBSSC2025 Secretariat
+NEISS2025 Secretariat
 ''',
                 from_email=None,
                 recipient_list=[request.user.email]

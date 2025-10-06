@@ -183,7 +183,7 @@ class AbstractSubmissionAdmin(ExportMixin, admin.ModelAdmin):
                 f"Dear {obj.user.first_name},\n\n"
                 f"Your abstract titled \"{obj.title}\" has unfortunately been REJECTED.\n"
                 "For queries, please contact the conference organizers.\n\n"
-                "Regards,\nConf2025 Secretariat"
+                "Regards,\NEISS2025 Secretariat"
             ),
             from_email=None,
             recipient_list=[obj.user.email],

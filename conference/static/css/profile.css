@@ -1,17 +1,16 @@
 /* ===== Root Variables ===== */
 :root {
-  --primary-color: #a6212a;
-  --primary-hover: #85191f;
-  --background: url("../images/bhutan-mountains.jpg") no-repeat center center;
-  --background-color: rgba(250, 240, 220, 0.9);
-  --card-bg: rgba(255, 255, 255, 0.9);
+  --primary-color: #2e7d32; /* deep green for navbar */
+  --primary-hover: #256629;  /* darker green on hover */
+  --background: linear-gradient(rgba(34,139,34,0.3), rgba(34,139,34,0.3)), url("../images/bhutan-mountains.jpg") no-repeat center center;
+  --background-size: cover;
+  --card-bg: rgba(255, 255, 255, 0.85);
   --text-color: #2a1f14;
   --border-color: #ccc;
   --button-bg: #f4c542;
   --button-text: #000;
   --form-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
-
 /* ===== Base Reset ===== */
 * {
   box-sizing: border-box;
@@ -22,7 +21,7 @@
 body {
   font-family: 'Segoe UI', sans-serif;
   background: var(--background);
-  background-size: cover;
+  background-size: var(--background-size);
   background-attachment: fixed;
   color: var(--text-color);
   line-height: 1.6;
@@ -30,17 +29,22 @@ body {
 }
 
 /* ===== Navbar ===== */
+/* Navbar styles */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: var(--primary-color);
+  background: var(--primary-color); /* green navbar */
   padding: 1rem 2rem;
   position: sticky;
   top: 0;
   z-index: 1000;
 }
 
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--button-bg); /* keep hover effect */
+}
 .logo {
   font-size: 1.4rem;
   font-weight: bold;
@@ -64,10 +68,6 @@ body {
   transition: color 0.3s;
 }
 
-.nav-links a:hover,
-.nav-links a.active {
-  color: var(--button-bg);
-}
 
 /* ===== Profile Container ===== */
 .profile-container {
@@ -75,63 +75,27 @@ body {
   margin: 4rem auto;
   background: var(--card-bg);
   padding: 2rem;
-  border-radius: 10px;
+  border-radius: 12px;
   box-shadow: var(--form-shadow);
   backdrop-filter: blur(6px);
 }
 
-.profile-container h2 {
-  text-align: center;
-  margin-bottom: 1.5rem;
-  color: var(--primary-color);
-}
-
-.profile-info {
-  margin-top: 1rem;
-}
-
-.profile-info label {
-  font-weight: bold;
-  display: block;
-  margin-top: 1rem;
-  margin-bottom: 0.3rem;
-}
-
-.profile-info p {
+/* ===== Profile Card ===== */
+.profile-card {
+  margin-top: 1.5rem;
   background: #fff;
-  padding: 0.6rem;
-  border-radius: 5px;
-  border: 1px solid var(--border-color);
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: var(--form-shadow);
+}
+
+.profile-card p {
+  margin-bottom: 0.8rem;
   font-size: 1rem;
+  line-height: 1.4;
 }
 
-.profile-actions {
-  margin-top: 2rem;
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-}
-
-.profile-actions a,
-.profile-actions button {
-  padding: 0.7rem 1.4rem;
-  background-color: var(--button-bg);
-  color: var(--button-text);
-  border: none;
-  border-radius: 5px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s ease;
-  text-decoration: none;
-}
-
-.profile-actions a:hover,
-.profile-actions button:hover {
-  background-color: var(--primary-hover);
-  color: #fff;
-}
-
-/* ===== Submission Table ===== */
+/* ===== Submission List ===== */
 .submission-list {
   margin-top: 2rem;
 }
@@ -142,6 +106,7 @@ body {
   text-align: center;
 }
 
+/* ===== Submission Table ===== */
 .submission-table {
   width: 100%;
   border-collapse: collapse;
@@ -198,6 +163,7 @@ body {
   color: #721c24;
 }
 
+/* ===== Buttons ===== */
 .pay-button,
 .upload-label {
   display: inline-block;
@@ -217,7 +183,14 @@ body {
   background-color: var(--primary-hover);
 }
 
-/* Responsive */
+/* Disabled button */
+.pay-button.disabled {
+  background-color: #ccc;
+  color: #444;
+  pointer-events: none;
+}
+
+/* ===== Responsive ===== */
 @media (max-width: 768px) {
   .nav-links {
     display: none;
@@ -249,15 +222,14 @@ body {
     padding: 1.5rem;
   }
 
-  .profile-actions {
-    flex-direction: column;
-  }
-
   .submission-table thead {
     display: none;
   }
 
-  .submission-table, .submission-table tbody, .submission-table tr, .submission-table td {
+  .submission-table, 
+  .submission-table tbody, 
+  .submission-table tr, 
+  .submission-table td {
     display: block;
     width: 100%;
   }
@@ -283,9 +255,8 @@ body {
     width: 100%;
     margin-bottom: 0.2rem;
   }
-}
-.pay-button.disabled {
-  background-color: #ccc;
-  color: #444;
-  pointer-events: none;
+
+  .profile-card p {
+    font-size: 0.95rem;
+  }
 }

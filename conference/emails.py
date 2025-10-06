@@ -59,3 +59,4 @@ def send_visitor_submission_confirmation(visitor):
     msg = EmailMultiAlternatives(subject, text_content, from_email, [to_email])
     msg.attach_alternative(html_content, "text/html")
     msg.send()
+
