@@ -204,7 +204,7 @@ def profile_view(request):
 
 Your final paper for the abstract titled "{submission.title}" has been successfully uploaded.
 
-View your profile here: https://neiss-sw-2025.onrender.com/profile/
+View your profile here: https://neiss.onrender.com/profile/
 
 Regards,  
 NEISS2025 Secretariat

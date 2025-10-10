@@ -1,47 +1,67 @@
 <!DOCTYPE html>
 <html>
-  <body style="font-family:Arial, sans-serif; color:#333;">
-    <p>Dear {{ author_name }},</p>
-    <p><strong>Paper Title:</strong> {{ title }}</p>
-    <p><strong>Paper ID:</strong> {{ paper_id }}</p>
-    <p><strong>Affiliation:</strong> {{ affiliation }}</p>
+  <body style="font-family: Arial, sans-serif; color:#333; background:#f9f9f9; padding:20px;">
+    <div style="max-width:600px; margin:auto; background:#fff; border-radius:8px; padding:20px; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
 
-    {% if coauthors %}
-    <p><strong>Co-Authors:</strong></p>
-    <ul>
-      {% for co in coauthors %}
-        <li>{{ co.first_name }} {{ co.last_name }} ({{ co.affiliation }}) – {{ co.email }}</li>
-      {% endfor %}
-    </ul>
-    {% endif %}
-    <p>
-It gives us immense pleasure to inform you that the Research Paper Scrutiny Committee has accepted the abstract of your research paper with ID IBSSC10041, entitled “{{ title }}”, to be presented in the “Indo Bhutan Social Science Conference” organised by the Department of Business Administration, Assam University, to be held at Bhutan, from 3rd September 2025 to 6th September 2025.
+      <!-- Header -->
+      <h2 style="text-align:center; color:#006400; margin-bottom:10px;">
+        Abstract Acceptance Notification
+      </h2>
+      <p style="text-align:center; font-size:14px; color:#777; margin-top:0;">
+        Northeast International Sustainable Summit 2025
+      </p>
 
-You are further requested to submit the full-length paper and complete the registration process on or before 10th August 2025.
+      <!-- Greeting -->
+      <p>Dear <strong>{{ author_name }}</strong>,</p>
 
-Note: If there are multiple authors in the paper, each author's payment is to be made by the registered person to receive a certificate.
+      <!-- Paper Info -->
+      <div style="background:#f1f9f1; padding:15px; border-radius:6px; margin:15px 0;">
+        <p><strong>Paper Title:</strong> {{ title }}</p>
+        <p><strong>Paper ID:</strong> {{ paper_id }}</p>
+        <p><strong>Affiliation:</strong> {{ affiliation }}</p>
 
-    </p>
-    <p>
-      👉 Join our official WhatsApp group for updates:  
-      <a href="https://chat.whatsapp.com/CPEaa6ek2ur0q6vL7nHJGT">
-        https://chat.whatsapp.com/CPEaa6ek2ur0q6vL7nHJGT
-      </a>
-    </p>
-    <p>You can make the payment and complete your registration by logging into your profile at the link below:
+        {% if coauthors %}
+        <p><strong>Co-Authors:</strong></p>
+        <ul style="margin:0; padding-left:20px;">
+          {% for co in coauthors %}
+            <li>{{ co.first_name }} {{ co.last_name }} ({{ co.affiliation }}) – {{ co.email }}</li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </div>
 
-👉 https://ibsscconf-site.onrender.com/profile/
+      <!-- Acceptance Note -->
+      <div style="background:#fff8e6; border-left:4px solid #ff9800; padding:15px; border-radius:4px; margin:20px 0;">
+        It gives us immense pleasure to inform you that the 
+        <strong>Research Paper Scrutiny Committee</strong> has 
+        <strong style="color:#006400;">accepted</strong> the abstract of your research paper 
+        (ID: <strong>{{paper_id}}</strong>) entitled 
+        <em>“{{ title }}”</em>, to be presented in 
+        <strong>"Two Day Northeast International Sustainable Summit 2025"</strong>.
+      </div>
 
-Please note:
+      <!-- Instructions -->
+      <p>
+        You are requested to submit the <strong>full-length paper</strong> and 
+        complete the registration process on or before 
+        <strong style="color:#d32f2f;">20th October 2025</strong>.
+      </p>
 
-Seats for offline presentations are limited, and will be allocated on a first-come, first-served basis.
+      <p style="font-size:13px; color:#555;">
+        <em>Note: If there are multiple authors in the paper, payment for everyone is to be made by the registered person to receive a certificate.</em>
+      </p>
 
-We encourage you to register at the earliest to secure your preferred presentation mode.
+      <!-- CTA Button -->
+      <div style="text-align:center; margin:30px 0;">
+        <a href="https://neiss.onrender.com/profile/" 
+           style="background:#006400; color:#fff; padding:12px 20px; text-decoration:none; border-radius:6px; font-weight:bold;">
+          Complete Registration & Payment
+        </a>
+      </div>
 
-If you have any questions or face any difficulties during the registration process, please feel free to contact the Technical Coordinator directly at 📞 +91-8099142522.
+      <!-- Footer -->
+      <p style="margin-top:20px;">Regards,<br><strong>NEISS Secretariat</strong></p>
 
-IMPORTANT NOTE: When Travelling to Bhutan, Original Copy of Voter Id Card or Passport is to be carried for verification of border patrol authorities. In case of failure to provide the necessary id proof at the border checkpoint, the conference management is not responsible.</p>
-
-    <p>Regards,<br>IBSSC Secretariat</p>
+    </div>
   </body>
 </html>

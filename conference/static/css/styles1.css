@@ -23,6 +23,27 @@ button {
   border: none;
   background: none;
 }
+.hero-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+.hero-logos img {
+  height: 70px;  /* Adjust size as needed */
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 4px rgba(0,0,0,0.2));
+  transition: transform 0.3s ease;
+}
+
+.hero-logos img:hover {
+  transform: scale(1.05);
+}
+
 
 /* ===================================
    NAVBAR

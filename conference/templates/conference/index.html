@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="{% static 'css/styles1.css' %}">
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
 <nav class="navbar">
@@ -31,20 +32,31 @@
 <main class="hero">
   <div class="overlay"></div>
   <div class="hero-content">
+    
+    <!-- Conference Logos -->
+    <div class="hero-logos">
+      <img src="{% static 'images/assam_university_logo.png' %}" alt="Assam University Logo">
+      <img src="{% static 'images/pollution_control_logo.png' %}" alt="Pollution Control Board Logo">
+      <img src="{% static 'images/nec_logo.png' %}" alt="North Eastern Council Logo">
+    </div>
+
+    <!-- Hero Text -->
     <h1>TWO DAY NORTH EAST INTERNATIONAL SUSTAINABLE SUMMIT 2025</h1>
     <p class="date">Department of Social Work,<br>Assam University Silchar</p>
-    <p class="date">21-22 November, 2025</p>
+    <p class="date">21–22 November, 2025</p>
     <p>Sponsored by</p>
-    <p> North Eastern Council, Ministry of Development of North Eastern Region</p>
-    <p>Supported by<br> Assam Pollution Control Board, Department of Environment, Forest and Climate Change</p>
-    
+    <p>North Eastern Council, Ministry of Development of North Eastern Region</p>
+    <p>Supported by<br>Assam Pollution Control Board, Department of Environment, Forest and Climate Change</p>
     <p class="date">Venue: Assam University, Silchar</p>
 
+    <!-- Countdown -->
     <div class="countdown" id="countdown">
       <div><span id="days">00</span><small>Days</small></div>
       <div><span id="hours">00</span><small>Hours</small></div>
       <div><span id="minutes">00</span><small>Minutes</small></div>
     </div>
+
+    <!-- Call to Action Buttons -->
     <div class="cta-buttons">
       {% if user.is_authenticated %}
         <a href="{% url 'profile' %}" class="btn primary">My Profile</a>
@@ -53,7 +65,7 @@
         <a href="{% url 'login' %}" class="btn primary">Login</a>
         <a href="{% url 'submit' %}" class="btn primary">Submit</a>
       {% endif %}
-    </div>    
+    </div>
   </div>
 </main>
 
