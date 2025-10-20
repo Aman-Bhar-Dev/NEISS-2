@@ -661,3 +661,10 @@ def super_edit_abstract(request, paper_id):
 
     return render(request, 'conference/super_edit.html', {'obj': obj})
 
+
+
+from django.shortcuts import render
+from datetime import datetime
+
+def payment_instructions(request):
+    return render(request, 'conference/pay.html', {'year': datetime.now().year})

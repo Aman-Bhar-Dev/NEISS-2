@@ -86,9 +86,9 @@
                     {# 1) never checked out -> Make Payment #}
                     {% with fr=submission.finalregistration %}
                       {% if not fr %}
-                        <a href="#" class="pay-button">Payment Closed</a>
+                        <a href="/payment/" class="pay-button">PAY NOW</a>
                       {% elif not fr.transaction_id %}
-                        <a href="#" class="pay-button">Payment Closed</a>
+                        <a href="/payment/" class="pay-button">PAY NOW</a>
                       {% elif not fr.payment_verified %}
                         <span class="under-approval">⏳ Under Approval</span>
                       {% else %}

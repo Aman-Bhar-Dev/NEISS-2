@@ -36,6 +36,7 @@ urlpatterns = [
     path('payment/thank-you/', views.payment_confirmation_view, name='thank_you'),
     path('visitor/register/', views.visitor_registration_view, name='visitor_registration'),
     path('super-edit/<str:paper_id>/', views.super_edit_abstract, name='super_edit_abstract'),
+    path('payment/', views.payment_instructions, name='payment_instructions'),
 
 ]
 
